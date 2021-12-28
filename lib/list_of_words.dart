@@ -17,27 +17,34 @@ class _ListOfWordsViewState extends State<ListOfWordsView> {
       appBar: AppBar(
         title: const Text("List of words"),
       ),
-      body: ListView.separated(
-        itemBuilder: (context, index) {
-          return ListTile(
-            leading: CircleAvatar(
-              child: Text(words[index][0]),
-            ),
-            title: Text(words[index]),
-          );
-        },
-        separatorBuilder: (context, index) {
-          return const Divider(
-            thickness: 1,
-            color: Colors.black,
-          );
-        },
-        itemCount: words.length,
+      body: Column(
+          children: const [
+          Image(image: AssetImage('assets/photo.jpg'))
+        //   ListView.separated(
+        //     itemBuilder: (context, index) {
+        //       return ListTile(
+        //         leading: CircleAvatar(
+        //           child: Text(words[index][0]),
+        //         ),
+        //         title: Text(words[index]),
+        //       );
+        //     },
+        //     separatorBuilder: (context, index) {
+        //       return const Divider(
+        //         thickness: 1,
+        //         color: Colors.black,
+        //       );
+        //     },
+        //     itemCount: words.length,
+        //   ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
-          var value = WordPair.random().asPascalCase;
+          var value = WordPair
+              .random()
+              .asPascalCase;
           setState(() {
             words.add(value);
           });
